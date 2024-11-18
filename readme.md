@@ -53,6 +53,6 @@ Create a soundcloud account, login then head to soundcloud.com. Inspect element 
 
 - **Download Soundcloud playlists:** Input a Soundcloud playlist URL, download at a max bitrate of 128kbps, metadata includes artist, and album art
 
-- When running for the first time, ensure there is a folder called ***'downloads'*** located within the flask folder /flask/downloads
+- When running for the first time, ensure there is a folder called *'downloads'* located within the flask folder */flask/downloads*
 
 - When downloading for the first time using a Spotify playlist, the script will redirect you to the redirect specified within your Spotify credentials, paste the link it takes you to back into the terminal and it will allow you to download the playlist. Common errors from this include the username not matching, ensure the username specified in your credentials matches your Spotify username.
