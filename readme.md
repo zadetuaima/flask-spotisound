@@ -12,6 +12,12 @@ Use pip to install requirements.txt. It is recommended that this is done within 
 pip install requirements.txt
 ```
 
+To run use flask run
+
+```bash
+flask run
+```
+
 
 ## Preperation
 
