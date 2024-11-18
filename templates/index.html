@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type ="text/css" href ="static/css/styles.css">
+	<title>SpotiSound</title>
+	<link rel="stylesheet" href="https://use.typekit.net/xrz2afb.css">
+</head>
+<body>
+	<div class="header">
+		<div class="header-logo">
+			<p class="p-header-pos-1">Spoti</p><p class="p-header-pos-2">SOUND</p>
+		</div>
+		<a href="https://github.com/zadetuaima/spotisound-dl" target=”_blank”><img src="static/25231.png" alt=""></a>
+	</div>
+	<div class="main">
+		<div class="imgcontaier">
+			<img style="padding-right:50%;" class="small3" src="static/youwouldnt/you.png" alt="">
+			<img style="padding-left:50%;" src="static/youwouldnt/wouldnt.png" alt="">
+			<img class="test" style="padding-right:30%;" src="static/youwouldnt/download.png" alt="">
+			<img style="padding-left:65%;" class="test small3" src="static/youwouldnt/a.png" alt="">
+			<img style="padding-left:17%;" class="test small3" src="static/youwouldnt/car.png" alt="">
+		</div>
+	</div>
+		<div class="main2">
+	    <div class="searchbar">
+	        <input id="playlist_url" type="text" placeholder="Enter Spotify or Soundcloud playlist URL..." required>
+	        <button id="download_button" type="button" style="font-family:circular; margin:2vh 0 0 0;">Download</button>
+	        <p id="downloaded" class="downloaded" style="opacity: 0; font-size:4vh; margin:2vh 0 0 0;">Downloaded!</p>
+	        <p>So don't use this to download licensed music.</p>
+	    </div>
+	</div>
+	<div class="footer">
+	</div>
+</body>
+<script type="text/javascript">
+	const header = document.querySelector('.header');
+
+	window.addEventListener('scroll', () => {
+	if (window.scrollY > 1) {
+		header.style.backgroundColor = '#1DB954';
+		header.style.color = 'white';
+	} else {
+		header.style.backgroundColor = '#ff5500';
+		header.style.color = 'black';
+		header.style.transition = 'background-color 0.2s ease'
+	}
+	});
+</script>
+<script>
+	const images = document.querySelectorAll('.test');
+
+	window.addEventListener('scroll', () => {
+	  images.forEach(image => {
+	    const rect = image.getBoundingClientRect();
+	    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+	    if (isVisible) {
+	      image.classList.add('visible');
+				image.style.transition = 'opacity 2s ease, transform 2s ease'
+	    } else {
+				image.classList.remove('visible');
+				image.style.transition = 'opacity 0.1s ease, transform 0.1s ease'
+			}
+	  });
+	});
+</script>
+<script>
+document.getElementById('download_button').addEventListener('click', async () => {
+    const playlistUrl = document.getElementById('playlist_url').value;
+    const downloadedText = document.getElementById('downloaded');
+
+    if (!playlistUrl) {
+        alert('Please enter a playlist URL.');
+        return;
+    }
+
+    try {
+        const response = await fetch('/download', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'playlist_url': playlistUrl
+            }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            downloadedText.style.opacity = '1';
+            setTimeout(() => {
+								downloadedText.style.opacity = '0';
+								downloadedText.style.transition = 'opacity 1s ease, transform 1s ease';
+            }, 5000);
+        } else {
+            alert(result.message || 'An error occurred.');
+        }
+    } catch (error) {
+        alert('Failed to process the request.');
+        console.error(error);
+    }
+});
+</script>
+
+</html>

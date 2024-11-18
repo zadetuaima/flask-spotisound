@@ -1,0 +1,137 @@
+@font-face {
+  font-family: xband;
+  src: url(/static/xband.ttf);
+}
+
+@font-face {
+  font-family: circular;
+  src: url(/static/circular.ttf);
+}
+
+
+body {
+  margin: 0;
+}
+
+.header {
+  height: 8vh;
+  background-color: #ff5500;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.5s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.header p {
+  font-size: 3rem;
+}
+
+.header a {
+  width: 7vh;
+  margin: 0 4vw 0 0;
+}
+
+.header img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.p-header-pos-1 {
+  font-family: circular;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  color: black;
+  padding: 0 0 0 4vw;
+}
+
+.p-header-pos-2 {
+  font-family: "interstate", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+}
+
+.main {
+  height: 140vh;
+  background-color: #191414;
+}
+
+.main img {
+  height: 65px;
+  width: 360px;
+  object-fit: contain;
+  padding-bottom: 12%;
+}
+
+.small3 {
+  height: 65px;
+  width: 360px;
+  object-fit: contain;
+}
+
+.imgcontaier {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:absolute;
+  top: 79vh;
+  right: 50vw;
+  transform: translate(50%);
+}
+
+.test {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.test.visible {
+  opacity: 1;
+}
+
+.searchbar input[type=text] {
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  width: 80vw;
+  border-radius: 20px;
+  height: 4vh;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main2 {
+  height: auto;
+  background-color: #191414;
+}
+
+.main2 p {
+  font-family: xband;
+  color: #FDFDFD;
+  font-size: 7vh;
+  font-weight: 900;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+  text-align: center;
+}
+
+.downloaded {
+  margin: 0;
+}

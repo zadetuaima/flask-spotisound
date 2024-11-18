@@ -1,0 +1,6 @@
+key.json
+soundcloud_key.json
+.cache
+/__pycache__
+/venv
+/Test
